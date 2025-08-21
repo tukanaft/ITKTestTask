@@ -1,0 +1,21 @@
+services:
+  itktest:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - itktest-db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://itktest-db:5432/ITKTask
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=12345
+
+  itktest-db:
+    image: postgres:16.1
+    ports:
+      - "6542:5432"
+    environment:
+      - POSTGRES_DB=ITKTask
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12345
+

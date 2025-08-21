@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="1" author="kishkurno grigorii">
+        <createTable tableName="wallets">
+            <column name="id" type="varchar">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="balance" type="int"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="kishkurno grigorii">
+        <insert tableName="wallets">
+            <column name="id" value="UUID"/>
+            <column name="balance" value="10000"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
